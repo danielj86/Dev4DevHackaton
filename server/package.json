@@ -1,0 +1,10 @@
+{
+    "name": "aquaponic",
+    "version": "0.0.1",
+    "dependencies": {
+        "require": "*",
+        "http-server": "*",
+        "express": "*",
+        "path": "*"
+    }
+}

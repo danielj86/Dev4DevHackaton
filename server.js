@@ -27,7 +27,7 @@ app.post('/temp', function(req, res) {
     console.log("temperature is : " + req.body.temperature);
     console.log(req);
 
-    res.write(req);
+    res.write(req.body);
     res.end();
 })
 

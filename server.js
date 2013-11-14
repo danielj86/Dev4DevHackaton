@@ -22,7 +22,7 @@ app.configure(function() {
 });
 
 app.get("/", function(request, response){ //root dir
-    var indexPage = path.join(process.cwd(), "/index.html");
+    var indexPage = path.join(process.cwd(), "/Index.html");
     fs.readFile(indexPage, "binary", function(err, file) {
         if (err) {
             response.writeHead(500, {

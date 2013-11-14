@@ -16,17 +16,23 @@ app.configure(function() {
     app.use(express.cookieParser());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(express.session({ secret: 'the cake is a lie' }));
+    app.use(express.session({
+        secret: 'the cake is a lie'
+    }));
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
 });
 
-app.get("/", function(request, response){ //root dir
+app.post('/temp', function(req, res) {
+    console.log("temperature is : " + req.body.temperature);
+})
+
+app.get("/", function(request, response) { //root dir
     var indexPage = path.join(process.cwd(), "/Index.html");
     fs.readFile(indexPage, "binary", function(err, file) {
         if (err) {
             response.writeHead(500, {
-                "Content-Type" : "Script"
+                "Content-Type": "Script"
             });
             response.write(err + "\n");
             response.end();
@@ -40,9 +46,3 @@ app.get("/", function(request, response){ //root dir
 });
 
 app.listen(port);
-
-
-
-
-
-

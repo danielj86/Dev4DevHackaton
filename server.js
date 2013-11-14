@@ -39,7 +39,7 @@ app.get("/", function(request, response){ //root dir
     });
 });
 
-app.listen(port, host);
+app.listen(port);
 
 
 

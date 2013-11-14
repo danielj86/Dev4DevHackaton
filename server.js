@@ -25,6 +25,9 @@ app.configure(function() {
 
 app.post('/temp', function(req, res) {
     console.log("temperature is : " + req.body.temperature);
+
+    res.write('hello');
+    res.end();
 })
 
 app.get("/", function(request, response) { //root dir

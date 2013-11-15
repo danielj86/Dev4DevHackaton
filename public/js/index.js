@@ -15,7 +15,7 @@ $(document).ready(function() {
        this.addClass("active");
 
        $.ajax({
-           url: "8.34.220.38/maintenance",
+           url: "/maintenance",
            type: "GET",
            success: function(data){
                mainContainer.html(data);
@@ -28,7 +28,7 @@ $(document).ready(function() {
        this.addClass("active")
 
        $.ajax({
-           url: "8.34.220.38/planning",
+           url: "/planning",
            type: "GET",
            success: function(data){
                mainContainer.html(data);

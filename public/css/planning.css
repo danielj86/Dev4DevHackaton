@@ -1,0 +1,43 @@
+.menu-item {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    ul.nav.nav-tabs li {
+        width: 50%;
+    }
+}
+
+.navbar {
+  height: 70px;
+}
+
+.navbar-inner {
+  background: #2c2c2c;
+  border: 0px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.container {
+  margin-left: 10px;
+}
+
+
+#main {
+  float: right;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: #ddd;
+}
+
+.nav-sidebar {
+    padding-left: 0;
+}
+
+.process {
+    overflow-y: scroll;
+    height: 100%;
+}

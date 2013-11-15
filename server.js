@@ -54,7 +54,7 @@ app.get("/", function(request, response) { //root dir
 });
 
 app.get("/css/aquaphonics.css", function(request, response) {
-    var indexPage = path.join(process.cwd(), "/public/css/aquaphonics.css");
+    var indexPage = path.join(process.cwd(), "/public/dist/css/aquaphonics.css");
     fs.readFile(indexPage, "binary", function(err, file) {
         if (err) {
             response.writeHead(500, {

@@ -38,7 +38,7 @@
         <div class="col-sm-3"></div>
         <div class="col-xs-6 col-sm-3 gauge-container left">
             <div id="temperature-value" class="gauge-text">25c</div>
-            <div id="temperatureChart" class="aqua-chart">
+            <div id="phChart" class="aqua-chart">
             </div>
             <div class="gauge-text">PH</div>
         </div>
@@ -55,6 +55,48 @@
 <script>
     $(document).ready(function () {
         var tempGauge = $("#temperatureChart").dxCircularGauge({
+                scale: {
+                    startValue: 0,
+                    endValue: 60,
+                    majorTick: {
+                        tickInterval: 10,
+                        color: "#000"
+                    }
+                },
+
+                rangeContainer: {
+                    backgroundColor: "none",
+                    ranges: [
+                        {
+                            startValue: 0,
+                            endValue: 40,
+                            color: "#CCCCCC"
+                        },
+                        {
+                            startValue: 30,
+                            endValue: 40,
+                            color: "#A6C567"
+                        },
+                        {
+                            startValue: 40,
+                            endValue: 50,
+                            color: "#FCBB69"
+                        },
+                        {
+                            startValue: 50,
+                            endValue: 60,
+                            color: "#E13034"
+                        }
+                    ]
+                },
+
+                needles: [{value: 24}]//,
+
+//                markers: [{value: 27}, { value: 44}]
+            });
+
+
+   var tempGauge = $("#phChart").dxCircularGauge({
                 scale: {
                     startValue: 0,
                     endValue: 60,

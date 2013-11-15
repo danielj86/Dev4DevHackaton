@@ -29,7 +29,9 @@ app.configure(function() {
 app.post('/temp', function(req, res) {
     console.log("temperature is : " + req.body.temperature);
     console.log(req.body);
-    sensData = {temperature: req.body.temperature}
+    sensData = {
+        temperature: req.body.temperature
+    }
     res.end();
 })
 
@@ -51,7 +53,7 @@ app.get("/", function(request, response) { //root dir
     });
 });
 
-app.get("/planning", function(request,response) {
+app.get("/planning", function(request, response) {
 
     var indexPage = path.join(process.cwd(), "/public/dist/planning.html");
     fs.readFile(indexPage, "binary", function(err, file) {
@@ -71,7 +73,7 @@ app.get("/planning", function(request,response) {
     });
 });
 
-app.get("/maintenance", function(request,response) {
+app.get("/maintenance", function(request, response) {
 
     var indexPage = path.join(process.cwd(), "/public/dist/maintenance.html");
     fs.readFile(indexPage, "binary", function(err, file) {
@@ -91,9 +93,9 @@ app.get("/maintenance", function(request,response) {
     });
 });
 
-app.get("/sens", function(request,response) {
+app.get("/sens", function(request, response) {
     response.writeHead(200);
-    response.write(sensData.temperature);
+    response.write(sensData.temperature.toString());
     response.end();
 });
 

@@ -6,34 +6,34 @@ var maintenanceMenu;
 var mainContainer;
 
 $(document).ready(function() {
-    maintenanceMenu = $("#maintenance-menu-item");
-    planningMenu = $("#planning-menu-item");
-    mainContainer = $("main");
+  maintenanceMenu = $("#maintenance-menu-item");
+  planningMenu = $("#planning-menu-item");
+  mainContainer = $("main");
 
-   maintenanceMenu.click(function(){
-       planningMenu.removeClass("active");
-       this.addClass("active");
+  maintenanceMenu.click(function() {
+    planningMenu.removeClass("active");
+    $(this).addClass("active");
 
-       $.ajax({
+    $.ajax({
 
-           url: "/maintenance",
-           type: "GET",
-           success: function(data){
-               mainContainer.html(data);
-           }
-       });
-   });
+      url: "/maintenance",
+      type: "GET",
+      success: function(data) {
+        mainContainer.html(data);
+      }
+    });
+  });
 
-    planningMenu.click(function(){
-       maintenanceMenu.removeClass("active");
-       this.addClass("active")
+  planningMenu.click(function() {
+    maintenanceMenu.removeClass("active");
+    $(this).addClass("active")
 
-       $.ajax({
-           url: "/planning",
-           type: "GET",
-           success: function(data){
-               mainContainer.html(data);
-           }
-       });
-   });
+    $.ajax({
+      url: "/planning",
+      type: "GET",
+      success: function(data) {
+        mainContainer.html(data);
+      }
+    });
+  });
 });

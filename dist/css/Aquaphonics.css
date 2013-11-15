@@ -24,7 +24,8 @@
   /*display: inline-block;*/
   box-sizing: border-box;
   padding: 10px;
-  margin: 0 3px;
+  /*margin: 0 3px;*/
+  width: 90%;
   }
   
   .plan-icon {
@@ -34,12 +35,20 @@
   }
   
   .maintenance-btn {
-  display: inline-block;
+  /*display: inline-block;*/
+  box-sizing: border-box;
+  width: 90%;
+  padding: 10px;
+  }
+   
+   .maintainence-icon {
+  margin-right: 6px;
+  margin-bottom: 5px;
+  
+  }
     
   }
   
-  .maintainence-icon {
-  margin-right: 6px;
-  }
+  
   
 }

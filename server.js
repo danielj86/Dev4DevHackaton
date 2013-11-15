@@ -31,7 +31,7 @@ app.post('/temp', function(req, res) {
 })
 
 app.get("/", function(request, response) { //root dir
-    var indexPage = path.join(process.cwd(), "/Index.html");
+    var indexPage = path.join(process.cwd(), "/dist/Index.html");
     fs.readFile(indexPage, "binary", function(err, file) {
         if (err) {
             response.writeHead(500, {
@@ -41,6 +41,46 @@ app.get("/", function(request, response) { //root dir
             response.end();
             return;
         }
+
+        response.writeHead(200);
+        response.write(file, "binary");
+        response.end();
+    });
+});
+
+app.get("planning", function(request,response) {
+
+    var indexPage = path.join(process.cwd(), "/dist/planning.html");
+    fs.readFile(indexPage, "binary", function(err, file) {
+        if (err) {
+            response.writeHead(500, {
+                "Content-Type": "Script"
+            });
+            response.write(err + "\n");
+            response.end();
+            return;
+        }
+
+
+        response.writeHead(200);
+        response.write(file, "binary");
+        response.end();
+    });
+});
+
+app.get("maintenance", function(request,response) {
+
+    var indexPage = path.join(process.cwd(), "dist/maintenance.html");
+    fs.readFile(indexPage, "binary", function(err, file) {
+        if (err) {
+            response.writeHead(500, {
+                "Content-Type": "Script"
+            });
+            response.write(err + "\n");
+            response.end();
+            return;
+        }
+
 
         response.writeHead(200);
         response.write(file, "binary");

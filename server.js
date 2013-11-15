@@ -51,7 +51,7 @@ app.get("/", function(request, response) { //root dir
     });
 });
 
-app.get("planning", function(request,response) {
+app.get("/planning", function(request,response) {
 
     var indexPage = path.join(process.cwd(), "/dist/planning.html");
     fs.readFile(indexPage, "binary", function(err, file) {
@@ -71,7 +71,7 @@ app.get("planning", function(request,response) {
     });
 });
 
-app.get("maintenance", function(request,response) {
+app.get("/maintenance", function(request,response) {
 
     var indexPage = path.join(process.cwd(), "dist/maintenance.html");
     fs.readFile(indexPage, "binary", function(err, file) {
@@ -91,7 +91,7 @@ app.get("maintenance", function(request,response) {
     });
 });
 
-app.get("sens", function(request,response) {
+app.get("/sens", function(request,response) {
     response.writeHead(200);
     response.write(sensData.toString());
     response.end();

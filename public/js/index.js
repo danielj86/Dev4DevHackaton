@@ -14,15 +14,7 @@ $(document).ready(function() {
     planningMenu.removeClass("active");
     $(this).addClass("active");
 
-       $.ajax({
-
-           url: "/maintenance",
-           type: "GET",
-           success: function(data){
-               mainContainer.html(data);
-           }
-       });
-   });
+    $.ajax({
 
       url: "/maintenance",
       type: "GET",

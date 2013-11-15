@@ -40,12 +40,13 @@
 
 <script>
     $(document).ready(function () {
-                $("#temperatureChart").dxCircularGauge({
+        var tempGauge = $("#temperatureChart").dxCircularGauge({
                 scale: {
                     startValue: 0,
                     endValue: 60,
                     majorTick: {
-                        tickInterval: 10
+                        tickInterval: 10,
+                        color: "#000"
                     }
                 },
 
@@ -119,6 +120,73 @@
 
 //                markers: [{value: 27}, { value: 44}]
             });
+
+         var count=0;
+
+                window.setInterval(function(){
+                     count++;
+                     var idealt_min = 15;
+                     var idealt_max = 40;
+
+
+                     var idealp_min =25;
+                     var idealp_max = 40;
+
+                     var buttont = "<input type='button' id='temperature_button' value='Help Temp'/>";
+                     var buttonp = "<input type='button' id='pressure_button' value='Help Pres' />";
+
+
+
+                    $.get( "8.34.220.38/sens", function( temperature ) {
+                        tempGauge.needleValue(0,temperature));
+                        if (temperature<idealt_min || temperature>idealt_max )  {
+                             colorHi('temp');
+                             if (count<=1) $('#temperatureChart').after(buttont);
+                         }
+
+                       /* if (temperature<idealt)  {
+                            colorLow('temp');
+                            if (count<=1) $('#temperatureChart').after(buttont);
+                        }*/
+                     });
+
+//                     $.get( "8.34.220.38/sens", function( pressure ) {
+//
+//                        if (pressure<idealp_min || pressure>idealp_max)  {
+//                             colorHi('pres');
+//                             if (count<=1) $('#pressureChart').after(buttonp);
+//                         }
+//                         /*
+//                        if (pressure<idealp)  {
+//                            colorLow('pres');
+//                            if (count<=1) $('#pressureChart').after(buttonp);
+//                        }
+//                        */
+//                     });
+
+
+            },3000);
+
+
+            function colorHi(chart){
+                if (chart=='temp') {
+                   $('#temperatureChart').css('backgroundColor', 'rgba(255,0,0,0.83)');
+
+                   }
+                if (chart=='pres') {
+                   $('#pressureChart').css('backgroundColor', 'rgba(255,0,0,0.83)');
+
+                   }
+            }
+
+            function colorLow(chart){
+               if(chart=='temp') {
+                 $('#temperatureChart').css('backgroundColor', 'rgba(0,0,255,0.83)');
+                 }
+                if (chart=='pres') {
+                 $('#pressureChart').css('backgroundColor', 'rgba(0,0,255,0.83)');
+                 }
+            }
         });
             </script>
 </body>

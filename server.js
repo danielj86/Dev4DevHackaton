@@ -34,7 +34,7 @@ app.post('/temp', function(req, res) {
 })
 
 app.get("/", function(request, response) { //root dir
-    var indexPage = path.join(process.cwd(), "/dist/index.html");
+    var indexPage = path.join(process.cwd(), "/public/dist/index.html");
     fs.readFile(indexPage, "binary", function(err, file) {
         if (err) {
             response.writeHead(500, {
@@ -51,29 +51,9 @@ app.get("/", function(request, response) { //root dir
     });
 });
 
-app.get("planning", function(request,response) {
+app.get("/planning", function(request,response) {
 
-    var indexPage = path.join(process.cwd(), "/dist/planning.html");
-    fs.readFile(indexPage, "binary", function(err, file) {
-        if (err) {
-            response.writeHead(500, {
-                "Content-Type": "Script"
-            });
-            response.write(err + "\n");
-            response.end();
-            return;
-        }
-
-
-        response.writeHead(200);
-        response.write(file, "binary");
-        response.end();
-    });
-});
-
-app.get("maintenance", function(request,response) {
-
-    var indexPage = path.join(process.cwd(), "dist/maintenance.html");
+    var indexPage = path.join(process.cwd(), "/public/dist/planning.html");
     fs.readFile(indexPage, "binary", function(err, file) {
         if (err) {
             response.writeHead(500, {
@@ -91,9 +71,29 @@ app.get("maintenance", function(request,response) {
     });
 });
 
-app.get("sens", function(request,response) {
+app.get("/maintenance", function(request,response) {
+
+    var indexPage = path.join(process.cwd(), "/public/dist/maintenance.html");
+    fs.readFile(indexPage, "binary", function(err, file) {
+        if (err) {
+            response.writeHead(500, {
+                "Content-Type": "Script"
+            });
+            response.write(err + "\n");
+            response.end();
+            return;
+        }
+
+
+        response.writeHead(200);
+        response.write(file, "binary");
+        response.end();
+    });
+});
+
+app.get("/sens", function(request,response) {
     response.writeHead(200);
-    response.write(sensData.toString());
+    response.write(sensData.temperature);
     response.end();
 });
 

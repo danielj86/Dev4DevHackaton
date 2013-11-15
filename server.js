@@ -8,6 +8,9 @@ var port = 80;
 
 var httpServer = null;
 var app = express();
+var sensData = {
+    temperature: 999
+};
 
 app.configure(function() {
     app.set('views', __dirname + '/views');
@@ -26,7 +29,7 @@ app.configure(function() {
 app.post('/temp', function(req, res) {
     console.log("temperature is : " + req.body.temperature);
     console.log(req.body);
-
+    sensData = {temperature: req.body.temperature}
     res.end();
 })
 
@@ -86,6 +89,12 @@ app.get("maintenance", function(request,response) {
         response.write(file, "binary");
         response.end();
     });
+});
+
+app.get("sens", function(request,response) {
+    response.writeHead(200);
+    response.write(sensData.toString());
+    response.end();
 });
 
 app.listen(port);

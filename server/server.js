@@ -47,4 +47,22 @@ app.get("/", function(request, response) { //root dir
     });
 });
 
+app.get("/welcome", function(request, response) { //root dir
+    var indexPage = path.join(process.cwd(), "/index1.html");
+    fs.readFile(indexPage, "binary", function(err, file) {
+        if (err) {
+            response.writeHead(500, {
+                "Content-Type": "Script"
+            });
+            response.write(err + "\n");
+            response.end();
+            return;
+        }
+
+        response.writeHead(200);
+        response.write(file, "binary");
+        response.end();
+    });
+});
+
 app.listen(port);

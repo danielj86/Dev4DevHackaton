@@ -138,7 +138,7 @@
 
 
                     $.get( "8.34.220.38/sens", function( temperature ) {
-                        tempGauge.needleValue(0,temperature));
+                        tempGauge.needleValue(0,temperature);
                         if (temperature<idealt_min || temperature>idealt_max )  {
                              colorHi('temp');
                              if (count<=1) $('#temperatureChart').after(buttont);

@@ -15,7 +15,7 @@ $(document).ready(function() {
        this.addClass("active");
 
        $.ajax({
-           
+
            url: "/maintenance",
            type: "GET",
            success: function(data){

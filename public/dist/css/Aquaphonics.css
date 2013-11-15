@@ -1,5 +1,38 @@
+
+body {
+  background: url('assets/Calm_Water_strwberrystk.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: 600px;
+	/*padding-top: 30px;*/
+	text-align: center;
+}
+
 #aqua-title {
   text-align: center;
+}
+
+#top {
+  margin-top: -5px;
+}
+
+#main-content {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.row-white-top {
+  margin-top: 25px;
+  /*margin-bottom: 30px;*/
+}
+
+.row-white {
+  background-color: rgba(255,255,255,0.5);
+  box-sizing: border-box;
+  padding: 20px 0;
+  margin: 0 auto;
 }
 
 .block-o-buttons {
@@ -21,7 +54,7 @@
     
   }
   .planning-btn {
-  /*display: inline-block;*/
+  /*display: inline-block;*<span class="">inline-block;*/</span>/
   box-sizing: border-box;
   padding: 10px;
   /*margin: 0 3px;*/
@@ -32,22 +65,19 @@
     margin-bottom: 5px;
   }
     
-  }
   
   .maintenance-btn {
   /*display: inline-block;*/
   box-sizing: border-box;
   width: 90%;
-  padding: 10px;
+  padding: 12px;
   }
    
-   .maintainence-icon {
+  .maintainence-icon {
   margin-right: 6px;
   margin-bottom: 5px;
+  }
   
-  }
-    
-  }
   
   
   

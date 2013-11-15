@@ -53,6 +53,24 @@ app.get("/", function(request, response) { //root dir
     });
 });
 
+app.get("/css/aquaphonics.css", function(request, response) {
+    var indexPage = path.join(process.cwd(), "/public/css/aquaphonics.css");
+    fs.readFile(indexPage, "binary", function(err, file) {
+        if (err) {
+            response.writeHead(500, {
+                "Content-Type": "Script"
+            });
+            response.write(err + "\n");
+            response.end();
+            return;
+        }
+
+        response.writeHead(200);
+        response.write(file, "binary");
+        response.end();
+    });
+});
+
 app.get("/planning", function(request, response) {
 
     var indexPage = path.join(process.cwd(), "/public/dist/planning.html");
@@ -98,5 +116,42 @@ app.get("/sens", function(request, response) {
     response.write(sensData.temperature.toString());
     response.end();
 });
+
+app.get("/welcome", function(request, response) { //root dir
+    var indexPage = path.join(process.cwd(), "/public/dist/index1.html");
+    fs.readFile(indexPage, "binary", function(err, file) {
+        if (err) {
+            response.writeHead(500, {
+                "Content-Type": "Script"
+            });
+            response.write(err + "\n");
+            response.end();
+            return;
+        }
+
+        response.writeHead(200);
+        response.write(file, "binary");
+        response.end();
+    });
+});
+
+app.get("/welcome", function(request, response) { //root dir
+    var indexPage = path.join(process.cwd(), "/public/dist/index1.html");
+    fs.readFile(indexPage, "binary", function(err, file) {
+        if (err) {
+            response.writeHead(500, {
+                "Content-Type": "Script"
+            });
+            response.write(err + "\n");
+            response.end();
+            return;
+        }
+
+        response.writeHead(200);
+        response.write(file, "binary");
+        response.end();
+    });
+});
+
 
 app.listen(port);
